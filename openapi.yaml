@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: API de Propiedades Guirola y Asociados
+  version: 1.0.0
+  description: API conectada a EasyBroker para buscar propiedades disponibles.
+servers:
+  - url: https://guirola-backend.vercel.app
+paths:
+  /propiedades:
+    get:
+      summary: Buscar propiedades
+      parameters:
+        - name: tipo
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Tipo de propiedad (casa, apartamento, bodega, etc.)
+        - name: zona
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Zona o sector (zona 10, carretera a El Salvador, etc.)
+        - name: operacion
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Tipo de operación (venta o renta/alquiler)
+      responses:
+        "200":
+          description: Lista de propiedades filtradas
