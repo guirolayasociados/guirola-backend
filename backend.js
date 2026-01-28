@@ -18,8 +18,9 @@ export default async function handler(req, res) {
 
     const response = await fetch(url, {
       headers: {
-        "X-Authorization": process.env.EASYBROKER_API_KEY
-      }
+  "Authorization": `Bearer ${process.env.EASYBROKER_API_KEY}`
+}
+
     });
 
     if (!response.ok) {
@@ -58,3 +59,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: "Fallo interno del servidor" });
   }
 }
+
