@@ -17,11 +17,13 @@ export default async function handler(req, res) {
     if (habitaciones) url += `bedrooms=${habitaciones}&`;
 
     const response = await fetch(url, {
-      headers: {
-  "Authorization": `Bearer ${process.env.EASYBROKER_API_KEY}`
-}
+  method: "GET",
+  headers: {
+    "X-Authorization": process.env.EASYBROKER_API_KEY,
+    "Accept": "application/json"
+  }
+});
 
-    });
 
     if (!response.ok) {
       return res.status(500).json({
@@ -59,4 +61,5 @@ export default async function handler(req, res) {
     res.status(500).json({ error: "Fallo interno del servidor" });
   }
 }
+
 
