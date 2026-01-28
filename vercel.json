@@ -1,9 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/propiedades.js", "use": "@vercel/node" }
+    { "src": "backend.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/propiedades", "dest": "/api/propiedades.js" }
+    { "src": "/(.*)", "dest": "/backend.js" }
   ]
 }
