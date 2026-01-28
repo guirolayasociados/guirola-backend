@@ -23,5 +23,5 @@ app.get("/propiedades", async (req, res) => {
   }
 });
 
-// 🔴 MUY IMPORTANTE EN VERCEL
+// 👇 ESTO ES CLAVE PARA VERCEL
 export default app;
